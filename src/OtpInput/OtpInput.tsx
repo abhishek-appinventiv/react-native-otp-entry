@@ -39,7 +39,7 @@ export const OtpInput = forwardRef<OtpInputRef, OtpInputProps>((props, ref) => {
           .map((_, index) => {
             const char = text[index];
             const isFocusedInput = index === focusedInputIndex;
-
+ const newColor = {borderColor: text?.length  > index ? focusColor : '#00000014'}
             return (
               <Pressable
                 key={`${char}-${index}`}
@@ -47,7 +47,7 @@ export const OtpInput = forwardRef<OtpInputRef, OtpInputProps>((props, ref) => {
                 style={[
                   styles.codeContainer,
                   pinCodeContainerStyle,
-                  focusColor && isFocusedInput ? { borderColor: focusColor } : {},
+                  focusColor && isFocusedInput ? { borderColor: focusColor } : newColor,
                   focusedPinCodeContainerStyle && isFocusedInput
                     ? { ...focusedPinCodeContainerStyle }
                     : {},
