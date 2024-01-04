@@ -16,12 +16,13 @@ exports.OtpInput = (0, react_1.forwardRef)((props, ref) => {
         {Array(numberOfDigits)
             .fill(0)
             .map((_, index) => {
-            const char = text[index];
-            const isFocusedInput = index === focusedInputIndex;
+              const char = text[index];
+              const newColor = {borderColor: text?.length  > index ? focusColor : '#00000014'}
+            const isFocusedInput = (index === focusedInputIndex);
             return (<react_native_1.Pressable key={`${char}-${index}`} onPress={handlePress} style={[
                     OtpInput_styles_1.styles.codeContainer,
                     pinCodeContainerStyle,
-                    focusColor && isFocusedInput ? { borderColor: focusColor } : {},
+                    focusColor && isFocusedInput ? { borderColor: focusColor } : newColor,
                     focusedPinCodeContainerStyle && isFocusedInput
                         ? { ...focusedPinCodeContainerStyle }
                         : {},
